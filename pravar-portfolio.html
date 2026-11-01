@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pravar Upadhyay | You Want Me. Admit It.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#150d2a;--ink:#f5f1ff;--card:#221542;--pink:#ff3d8b;--lemon:#ffe14d;--mint:#27d9a0;--muted:#b4a9d6;--line:#f5f1ff;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg:#f3f0ff;--ink:#1a1033;--card:#fff;--muted:#5b5278;--line:#1a1033;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Instrument Sans',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.05;margin:0}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,61,139,.28),transparent 65%);transform:translate(-50%,-50%);z-index:0;left:50%;top:30%}
+main,header,footer{position:relative;z-index:1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;gap:12px;flex-wrap:wrap}
+nav b{font-family:'Bricolage Grotesque';font-size:1.3rem}
+nav div{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--pink)}
+button{font:inherit;cursor:pointer}
+.theme{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 14px}
+.hero{padding:6vh 5vw 8vh;max-width:1100px;margin:0 auto}
+.tag{display:inline-block;background:var(--lemon);color:#1a1033;border:2px solid var(--line);border-radius:999px;padding:4px 14px;font-weight:600;transform:rotate(-2deg);margin-bottom:22px}
+h1{font-size:clamp(2.6rem,9vw,6.6rem);font-weight:800;letter-spacing:-.03em}
+h1 em{font-style:normal;background:var(--pink);color:#fff;padding:0 .15em;border-radius:12px;display:inline-block;transform:rotate(-1.5deg)}
+.type{font-size:clamp(1.1rem,2.6vw,1.6rem);margin:22px 0 6px;font-weight:600;min-height:2.2em}
+.type i{display:inline-block;width:3px;height:1.1em;background:var(--pink);vertical-align:-3px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.sub{color:var(--muted);max-width:620px}
+.cta{display:flex;gap:16px;align-items:center;margin-top:30px;flex-wrap:wrap;min-height:70px}
+.btn{border:3px solid var(--line);border-radius:14px;padding:12px 22px;font-weight:600;font-size:1.05rem;background:var(--lemon);color:#1a1033;box-shadow:5px 5px 0 var(--line);transition:transform .15s,box-shadow .15s;text-decoration:none;display:inline-block}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--line)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--line)}
+.btn.alt{background:var(--card);color:var(--ink)}
+.btn.dodge{box-shadow:none;position:relative;transition:none}
+.btn.dodge:hover{box-shadow:none;transform:none}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:12px;font-weight:600;z-index:50;transition:transform .35s cubic-bezier(.2,1.4,.4,1);max-width:90vw;text-align:center}
+#toast.on{transform:translate(-50%,0)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;max-width:1100px;margin:0 auto;padding:0 5vw}
+.stat{background:var(--card);border:3px solid var(--line);border-radius:18px;padding:16px 18px}
+.stat b{font-family:'Bricolage Grotesque';font-size:2.6rem;display:block;color:var(--pink)}
+.stat span{color:var(--muted);font-size:.95rem}
+section{max-width:1100px;margin:0 auto;padding:10vh 5vw 0}
+h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;margin-bottom:10px}
+.lead{color:var(--muted);margin:0 0 28px;max-width:620px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.chip{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 16px;font-weight:600}
+.chip.on{background:var(--pink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.card{background:var(--card);border:3px solid var(--line);border-radius:20px;padding:22px;transition:transform .12s ease-out;position:relative;display:flex;flex-direction:column}
+.card.hide{display:none}
+.card h3{font-size:1.4rem;margin:12px 0 6px}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+.card .role{font-weight:600;color:var(--ink);font-size:.95rem;margin:0 0 6px}
+.pill{display:inline-block;border-radius:999px;padding:2px 12px;font-size:.85rem;font-weight:600;color:#1a1033;border:2px solid var(--line)}
+.p-int{background:var(--mint)}.p-hack{background:var(--lemon)}.p-learn{background:#b9a6ff}.p-vol{background:#ff9fc4}.p-proj{background:#7fd4ff}
+.date{float:right;color:var(--muted);font-size:.85rem}
+.roast{margin-top:12px;font-style:italic;color:var(--pink);font-weight:600;font-size:.92rem}
+.stack{margin-top:10px;font-size:.85rem;color:var(--muted)}
+.card a.go{margin-top:auto;padding-top:14px;color:var(--ink);font-weight:600;text-decoration-color:var(--pink);text-underline-offset:4px;text-decoration-thickness:3px}
+.card a.go:hover{color:var(--pink)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+.contact{text-align:center;padding-bottom:12vh}
+.contact h2{font-size:clamp(2.2rem,7vw,5rem)}
+.links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.phone{margin-top:22px;color:var(--muted)}
+.phone a{color:var(--ink);font-weight:600}
+footer{text-align:center;color:var(--muted);padding:0 5vw 40px;font-size:.9rem}
+.confetti{position:fixed;top:-20px;width:10px;height:14px;z-index:60;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="glow"></div>
+<header>
+<nav><b>pravar.</b><div><a href="#proof">Experience</a><a href="#work">Projects</a><a href="#contact">Hire me</a><button class="theme" id="theme" aria-label="Switch to light theme">Light mode</button></div></nav>
+<div class="hero">
+<span class="tag">Visitor detected. Hiring mode: probably on.</span>
+<h1>If you're here, you <em>want me.</em></h1>
+<div class="type" id="type" aria-live="off"></div>
+<p class="sub">I'm Pravar Upadhyay, a B.Tech Computer Science (Data Science) student at UPES Dehradun, graduating May 2027. Three internships, a few hackathons and a pile of projects: I take a feature from idea to shipped, and I'm looking for a Backend, Platform or Full Stack role.</p>
+<div class="cta">
+<a class="btn" id="hire" href="#contact">Yes, I want him</a>
+<button class="btn alt dodge" id="no">No, just browsing</button>
+</div>
+</div>
+</header>
+<main>
+<div class="stats" id="stats">
+<div class="stat"><b data-n="4">0</b><span>internships done</span></div>
+<div class="stat"><b data-n="2">0</b><span>hackathons survived</span></div>
+<div class="stat"><b data-n="8">0</b><span>projects shipped</span></div>
+<div class="stat"><b data-n="0">0</b><span>reasons not to call me</span></div>
+</div>
+
+<section id="proof">
+<h2 class="reveal">The receipts</h2>
+<p class="lead reveal">Internships, hackathons, courses and volunteering, each backed by an actual certificate. Filter it, tilt it, judge it.</p>
+<div class="chips" id="chips">
+<button class="chip on" data-f="all">Everything</button>
+<button class="chip" data-f="int">Internships</button>
+<button class="chip" data-f="hack">Hackathons</button>
+<button class="chip" data-f="learn">Learning</button>
+<button class="chip" data-f="vol">Giving back</button>
+</div>
+<div class="grid" id="grid">
+<article class="card" data-c="int"><span class="pill p-int">Internship</span><h3>Pheme Software Pvt. Ltd.</h3><p class="role">Remote Mentoring Internship (an IBM partner)</p><p>Delivered an analytics platform and prediction engine as the internship project, the Sports Performance Analytics System, and documented the methodology and results in a written validation report. Mentored by Mr. Pavan Kumar.</p><div class="roast">Turned athletes into data points. They didn't complain.</div></article>
+<article class="card" data-c="int"><span class="pill p-int">Internship</span><h3>Xebia IT Architects</h3><p class="role">Intern, 60 days</p><p>Worked in a fast-paced, cross-functional team to move prototypes into production-facing features. Built interactive Tableau dashboards on real project data in PostgreSQL and presented insights to a 15+ member team.</p><div class="roast">Signed by a Global CEO. I'm not bragging, the certificate is.</div></article>
+<article class="card" data-c="int"><span class="pill p-int">Internship</span><h3>Neidhal Corporate Solutions</h3><p class="role">App Development Intern, online</p><p>Contributed to application development, tracking requirements, scope and progress with a distributed team in an agile workflow, then handed off the finished app for deployment.</p><div class="roast">Agile before it was cool. Okay, after. Still agile.</div></article>
+<article class="card" data-c="hack"><span class="pill p-hack">Hackathon</span><h3>Environmental Hacks</h3><p class="role">WeMakeDevs x AWS, Bharat Builds Tour</p><p>Four-day hackathon, online and at DTU Delhi, building what the planet needs. Certificate of Participation issued 24 October 2026.</p><div class="roast">Four days, one planet, zero sleep.</div></article>
+<article class="card" data-c="hack"><span class="pill p-hack">Hackathon</span><h3>Adobe University Hackathon</h3><p class="role">Representing UPES Dehradun</p><p>Participated in the hackathon organised by Adobe, via Unstop.</p><div class="roast">Yes, that Adobe. No, I didn't make the logo bigger.</div></article>
+<article class="card" data-c="learn"><span class="pill p-learn">Learning</span><h3>IBM SkillsBuild: AI Tools</h3><p>Completed "How IBM Bob and AI Tools Are Changing the Way Solutions Are Built" on Adobe Learning Manager.</p><div class="roast">15 minutes. Fastest I've ever been right.</div></article>
+<article class="card" data-c="learn"><span class="pill p-learn">Learning</span><h3>Transformers and BERT</h3><p class="role">Google Skills</p><p>Completed the Transformer Models and BERT Model course.</p><div class="roast">Attention is all I need. And a job.</div></article>
+<article class="card" data-c="learn"><span class="pill p-learn">Learning</span><h3>Salesforce Trailhead</h3><p>Earned 3 Trailhead badges.</p><div class="roast">Cloud-certified. Head still firmly on the ground.</div></article>
+<article class="card" data-c="learn"><span class="pill p-learn">Learning</span><h3>Nestlé Nesternship: Resilience</h3><p>Completed the Nestlé E-learning 2026 module on Resilience.</p><div class="roast">Resilient enough to read this whole page. Are you?</div></article>
+<article class="card" data-c="int"><span class="pill p-int">Internship</span><h3>Child Help Foundation, Mumbai</h3><p class="role">NGO Volunteer Intern</p><p>Did field visits and area mapping, community surveys, report preparation, and presentations on SAM, MAM and Sickle Cell Anaemia, plus awareness role-plays promoting breastfeeding.</p><div class="roast">Role-played awareness sessions. Yes, with a straight face.</div></article>
+<article class="card" data-c="vol"><span class="pill p-vol">Giving back</span><h3>Pratibhim Photography Club</h3><p class="role">Member, UPES</p><p>Part of the university photography club. Yes, I also know when to look away from the screen.</p><div class="roast">Great at framing. Also at framing a solution.</div></article>
+</div>
+</section>
+
+<section id="work">
+<h2 class="reveal">Projects</h2>
+<p class="lead reveal">Built, tested and (mostly) on GitHub. The ones with test counts are the ones I'm proudest of.</p>
+<div class="grid">
+<article class="card"><span class="pill p-proj">On-device AI</span><h3>DRISHTI</h3><p class="role">Offline AI vision assistant for blind and low-vision users, Qualcomm Snapdragon AI Lab Build &amp; Present Challenge</p><p>Processes camera frames locally and turns them into spoken feedback, so it works without internet and keeps camera data on the device. Three voice modes: Describe (object detection with left/center/right positioning), Read (on-device OCR for signs, labels and documents) and Watch (throttled live narration that avoids repeating itself). Prefers the Snapdragon Hexagon NPU with DirectML and CPU fallbacks. Covered by automated tests and a smoke-test path.</p><div class="stack">Python, YOLOv8n (Qualcomm AI Hub), ONNX Runtime with QNN, RapidOCR, pyttsx3</div><a class="go" href="https://github.com/pravar0709/drishti-snapdragon" target="_blank" rel="noopener">View on GitHub</a></article>
+<article class="card"><span class="pill p-proj">Analytics / Internship project</span><h3>Sports Performance Analytics System: Court Intel</h3><p class="role">Built at Pheme Software Pvt. Ltd.</p><p>An analytics platform and prediction engine delivered as my Pheme Software internship project, with the methodology and results documented in a written validation report.</p><div class="stack">TypeScript, PostgreSQL, Docker</div><a class="go" href="https://github.com/pravar0709/court-intel1" target="_blank" rel="noopener">View on GitHub</a></article>
+<article class="card"><span class="pill p-proj">AI / Backend</span><h3>BrandProof</h3><p class="role">Cite-or-abstain brand governance</p><p>A FastAPI app that checks marketing drafts against a brand guide and an approved-claims ledger, using TF-IDF retrieval and LLM verification. Every finding must cite the exact rule, and if the LLM's quoted evidence isn't literally in the source, it's flagged for human review. 22 tests passing.</p><div class="stack">Python, FastAPI, SQLAlchemy, pydantic, scikit-learn, Gemini/Anthropic APIs</div><a class="go" href="https://github.com/pravar0709/Brand-Proof" target="_blank" rel="noopener">View on GitHub</a></article>
+<article class="card"><span class="pill p-proj">AI / Fintech</span><h3>RecoveraPay</h3><p class="role">AI revenue recovery agent</p><p>A Flask web app that diagnoses failed payments, scores recovery probability with a GradientBoosting model and SHAP, and picks one of nine bounded actions from an auditable agent policy layer. HMAC-verified webhooks, bilingual UI, and Claude-powered reasons, Q&amp;A and FAQ chat with a rule-based fallback. 23 tests passing.</p><div class="stack">Python, Flask, JavaScript, scikit-learn, SHAP, Anthropic API</div><a class="go" href="https://github.com/pravar0709/RecoveraPay" target="_blank" rel="noopener">View on GitHub</a></article>
+<article class="card"><span class="pill p-proj">ML / Cloud</span><h3>Stubble Smoke Alert</h3><p class="role">Next-day AQI forecast for schools</p><p>An ML pipeline using weather and satellite fire data to predict the next-day AQI band, beating a naive baseline with 96% recall on "Very Poor" days. Runs on an AWS serverless architecture, with 64 tests passing.</p><div class="stack">Python, pandas, scikit-learn, AWS S3, Lambda, API Gateway</div><a class="go" href="https://github.com/pravar0709/stubble-smoke-alert" target="_blank" rel="noopener">View on GitHub</a></article>
+<article class="card"><span class="pill p-proj">AI / Health</span><h3>Smart Healthcare Assistant</h3><p class="role">AI-assisted health companion</p><p>An app where users track symptoms, get general health guidance, manage medication reminders and log appointments.</p><a class="go" href="https://github.com/pravar0709/smart-healthcare-assistant" target="_blank" rel="noopener">View on GitHub</a></article>
+<article class="card"><span class="pill p-proj">Deep Learning</span><h3>Cerebral Disorder Detection</h3><p class="role">Brain disorder detection from images</p><p>An image-based approach to detecting brain disorders, explored across a TypeScript app and Jupyter notebook experiments.</p><a class="go" href="https://github.com/pravar0709/Cerebral-Disorder-Detection" target="_blank" rel="noopener">View on GitHub</a></article>
+<article class="card"><span class="pill p-proj">Data Viz</span><h3>Shark Tank India Dashboard</h3><p class="role">Deals, founders and funding</p><p>A dashboard digging into Shark Tank India data. Because someone had to find out who actually gets the deal.</p><a class="go" href="https://github.com/pravar0709/shark-tank-india-dashboard" target="_blank" rel="noopener">View on GitHub</a></article>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2 class="reveal">Okay, you've scrolled this far.</h2>
+<p class="lead reveal" style="margin-inline:auto">That's not browsing anymore, that's interest. Let's talk before someone else notices what you noticed.</p>
+<div class="links">
+<a class="btn" href="mailto:pravarupadhyay174@gmail.com">Email me</a>
+<a class="btn alt" href="https://www.linkedin.com/in/pravar-upadhyay-b76749285/" target="_blank" rel="noopener" style="box-shadow:5px 5px 0 var(--line)">LinkedIn</a>
+<a class="btn alt" href="https://github.com/pravar0709" target="_blank" rel="noopener" style="box-shadow:5px 5px 0 var(--line)">GitHub</a>
+</div>
+<p class="phone">Or just call: <a href="tel:+917820994075">+91-7820994075</a></p>
+</section>
+</main>
+<footer>Built to get Pravar hired. Is it working?</footer>
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* theme: dark by default, light only when chosen */
+var root=document.documentElement,tb=$('#theme');
+function setTheme(t){root.setAttribute('data-theme',t);tb.textContent=t==='dark'?'Light mode':'Dark mode';tb.setAttribute('aria-label','Switch to '+(t==='dark'?'light':'dark')+' theme')}
+try{if(localStorage.getItem('theme')==='light')setTheme('light')}catch(e){}
+tb.onclick=function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(n);try{localStorage.setItem('theme',n)}catch(e){}};
+/* cursor glow */
+var g=$('#glow');
+addEventListener('pointermove',function(e){g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+/* typing */
+var lines=['Intern. Hackathoner. Volunteer. Overachiever.','Currently accepting job offers (and snacks).','Tests passing: 22, 23 and 64. Yes, I counted.'];
+var el=$('#type'),li=0,ci=0,del=false;
+function tick(){var t=lines[li];if(reduce){el.textContent=t;return}
+el.innerHTML=t.slice(0,ci)+'<i></i>';
+if(!del&&ci<t.length){ci++;setTimeout(tick,55)}
+else if(!del){del=true;setTimeout(tick,1600)}
+else if(ci>0){ci--;setTimeout(tick,25)}
+else{del=false;li=(li+1)%lines.length;setTimeout(tick,300)}}
+tick();
+/* toast */
+var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)}
+/* confetti */
+function confetti(){if(reduce)return;var c=['#ff3d8b','#ffe14d','#27d9a0','#b9a6ff'];for(var i=0;i<60;i++){var d=document.createElement('div');d.className='confetti';d.style.left=Math.random()*100+'vw';d.style.background=c[i%4];d.style.animationDuration=(1.6+Math.random()*1.8)+'s';d.style.animationDelay=Math.random()*.4+'s';document.body.appendChild(d);setTimeout(function(x){x.remove()},4200,d)}}
+$('#hire').addEventListener('click',function(){confetti();toast('Great choice. Scrolling you to the good part.')});
+/* dodging "No" button */
+var no=$('#no'),tries=0,hire=$('#hire');
+var msgs=['Nice try.','The button is shy.','You can\u2019t click what you don\u2019t want.','Still here? Thought so.','It\u2019s getting tired. Just hire him.'];
+function dodge(){tries++;var x=(Math.random()-.5)*Math.min(260,innerWidth*.5),y=(Math.random()-.5)*90;
+no.style.transition='transform .25s';no.style.transform='translate('+x+'px,'+y+'px) rotate('+(Math.random()*16-8)+'deg)';
+toast(msgs[Math.min(tries-1,msgs.length-1)]);
+hire.style.transform='scale('+(1+Math.min(tries,6)*.07)+')'}
+if(!reduce){no.addEventListener('pointerenter',dodge)}
+no.addEventListener('click',function(){if(reduce){toast('Honest answer noted. The offer still stands.')}else{dodge()}});
+/* counters + reveals */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
+var t=e.target;t.classList.add('in');
+if(t.id==='stats'){$$('#stats [data-n]').forEach(function(n){var to=+n.dataset.n,s=null;
+function f(ts){s=s||ts;var p=Math.min((ts-s)/1000,1);n.textContent=reduce?to:Math.round(to*p);if(p<1)requestAnimationFrame(f)}
+requestAnimationFrame(f)})}
+io.unobserve(t)})},{threshold:.2});
+$$('.reveal').forEach(function(n){io.observe(n)});io.observe($('#stats'));
+/* filters */
+$$('.chip').forEach(function(c){c.onclick=function(){$$('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');
+var f=c.dataset.f;$$('#grid .card').forEach(function(k){k.classList.toggle('hide',f!=='all'&&k.dataset.c!==f)})}});
+/* tilt */
+if(!reduce&&matchMedia('(hover:hover)').matches){$$('.card').forEach(function(k){
+k.addEventListener('pointermove',function(e){var r=k.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+k.style.transform='perspective(700px) rotateY('+x*10+'deg) rotateX('+-y*10+'deg) translateY(-4px)'});
+k.addEventListener('pointerleave',function(){k.style.transform=''})})}
+/* easter egg */
+var buf='';addEventListener('keydown',function(e){buf=(buf+e.key.toLowerCase()).slice(-6);if(buf==='hireme'){confetti();toast('You typed it. That\u2019s a contract in my book.')}});
+})();
+</script>
+</body>
+</html>
